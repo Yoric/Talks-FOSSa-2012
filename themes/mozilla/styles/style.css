@@ -361,6 +361,20 @@ blockquote .quotesource {
   -o-transform:translateY(-50%);
   transform:translateY(-50%);
 }
+.slide.loud h3 {
+  position:absolute;
+  top:50%;
+  left:0;
+  width:100%;
+  text-align:center;
+  line-height:1;
+  font-size:30px;
+  -webkit-transform:translateY(-50%);
+  -moz-transform:translateY(-50%);
+  -ms-transform:translateY(-50%);
+  -o-transform:translateY(-50%);
+  transform:translateY(-50%);
+}
 .slide.loud h2 a[target=_blank] {
   margin:0;
 }
@@ -650,7 +664,9 @@ ul.inline li::after {
 ul.inline li:last-child::after {
   content: '.';
 }
-
+ul.choice li:before {
+  content: '\25A2';
+}
 /* Notes */
 .full .notes {
   display:none;
