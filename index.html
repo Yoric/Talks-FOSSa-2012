@@ -450,17 +450,18 @@
         <div class="left" style="font-size:20px">
 		<pre>
 			<code><span class="keyword">function</span> <span class="function-name">contributor</span>(<span class="variable-name">myFavoriteTech</span>) {</code>
-			<code>  <span class="keyword">var</span> <span class="variable-name">bug</span> = <a href="http://www.joshmatthews.net/bugsahoy/">mentoredBugs</a>.pick(myFavoriteTech); </code>
-			<code>  <span class="comment-delimiter">// </span><span class="comment">FIXME: prof filter</span></code>
+			<code>  <span class="keyword">if</span> (!myFavoriteTech)</span></code>
+			<code>    <span class="keyword">return</span> webmaker();</code>
+			<code>  <span class="keyword">var</span> <span class="variable-name">bug</span> = <a href="http://www.joshmatthews.net/bugsahoy/">mentoredBugs</a>.pick(myFavoriteTech); <span class="comment-delimiter">// </span><span class="comment">FIXME: prof filter</span></code>
 			<code>  <span class="keyword">var</span> <span class="variable-name">guidance</span> = contact(bug.mentor, <a href=
             "irc://irc.mozilla.org/#introduction">mozilla.irc</a>);</code>
 			<code>  <span class="keyword">do</span> {</code>
-			<code>    <span class="comment-delimiter">// </span><span class="comment">communicate or fail</code>
 			<code>    <span class="comment-delimiter">// </span><span class="comment">work on patch</code>
+			<code>    <span class="keyword">if</span> (!guidance.communicate())</code>
+		    <code>      <span class="keyword">throw new</span> ProjectFailed();</code>
 			<code></span>  } <span class="keyword">while</span> (!bug.<a href=
               "https://bugzilla.mozilla.org/page.cgi?id=splinter.html&amp;bug=730085&amp;attachment=652857">isReviewPassed</a>);</code>
-			<code>  <span class="keyword">return</span> bug.<a href="https://github.com/mozilla/mozilla-central/commits?author=saurabhanandiit@gmail.com">myCodeInFirefox</a>;</code>
-			<code>  <span class="comment-delimiter">// </span><span class="comment">bragging rights!</code>
+			<code>  <span class="keyword">return</span> bug.<a href="https://github.com/mozilla/mozilla-central/commits?author=saurabhanandiit@gmail.com">myCodeInFirefox</a>;  <span class="comment-delimiter">// </span><span class="comment">bragging rights!</code>
 			<code>}</code>
 		</pre>
         </div>
@@ -553,17 +554,17 @@
 			<code><span class="keyword">function</span> <span class="function-name">students</span>(<span class="variable-name">subject</span>, <span class="variable-name">prof</span>) {</code>
 			<code>  <span class="keyword">var</span> <span class="variable-name">project</span> = <a href="https://github.com/Yoric/Mozilla-Student-Projects/issues">projects</a>.pick(subject, prof);<span class="comment-delimiter">// </span><span class="comment">or prof filters first</span> </code> 
 			<code>  <span class="keyword">var</span> <span class="variable-name">guidance</span> = contact(project.mentor, <a href=
-            "irc://irc.mozilla.org/#introduction">mozilla.irc</a>);</code>
+            "irc://irc.mozilla.org/#introduction">mozilla.irc</a>, prof);</code>
 			<code>  <span class="keyword">do</span> {</code>
 			<code>    <span class="variable-name">project</span>.<span class="variable-name">refine</span>();</code>
 			<code>    <span class="keyword">do</span> {</code>
-			<code>      <span class="comment-delimiter">// </span><span class="comment">communicate or fail</span></code>
-			<code>      <span class="comment-delimiter">// </span><span class="comment">work on patch</span></code>
+			<code>      <span class="comment-delimiter">// </span><span class="comment">work on project</span></code>
+			<code>      <span class="keyword">if</span> (!guidance.communicate())</code>
+		    <code>        <span class="keyword">throw new</span> ProjectFailed();</code>
 			<code>    } <span class="keyword">while</span> (!project.isWorking);</code>
 			<code>  } <span class="keyword">while</span> (!project.isComplete);</code>
 
-			<code>  <span class="keyword">return</span> project.release();</code>
-			<code>  <span class="comment-delimiter">// </span><span class="comment">worldwide exposure!</code>
+			<code>  <span class="keyword">return</span> project.release(); <span class="comment-delimiter">// </span><span class="comment">worldwide exposure!</code>
 			<code>}</code>
 		</pre>
         </div>
@@ -639,6 +640,7 @@
         	<li>Marketing projects!</li>
         	<li>Event organization as projects!</li>
         	<li>Teaching as projects!</li>
+        	<li>Do you know any professors who need a refresher in development?</li>
         	<li>...</li>
         </ul>
         </div>
@@ -684,18 +686,6 @@
           <span class="operand">High-tech career
           booster</span></span>
         </div>
-      </section>
-    </div>
-  </div>
-
-  <div id="section_cv_further" class="slide loud">
-    <div>
-      <section>
-        <header>
-          <div class="titles">
-            Why stop here?
-          </div>
-        </header>
       </section>
     </div>
   </div>
@@ -896,13 +886,19 @@
         		<span class="operator">=</span>
         		<span class="operand">Tomorrow's browser (around noon)</span>
         	</div>
-        	<div class="line">
-        		<span class="operator">⇒</span>
-        		<span class="operand">Plenty of Research needed</span>
-        	</div>
         </div>
       </section>
     </div>
+  </div>
+
+  <div id="section_research_needed" class="slide loud">
+  	<div>
+  		<section>
+			<div class="titles">
+				Plenty of Research needed
+			</div>
+		</section>
+	</div>
   </div>
 
   <div id="section_research_graduated" class="slide">
