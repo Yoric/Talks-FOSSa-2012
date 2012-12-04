@@ -271,6 +271,14 @@ blockquote .quotesource {
   background:none;
   color:#888;
 }
+.slide pre .comment-delimiter {
+  padding:0;
+  background:none;
+  color:#888;
+}
+.slide pre .keyword {
+  font-weight: bold;
+}
 
 /* Cover */
 .slide.cover section {
@@ -693,6 +701,7 @@ ul.choice li:before {
 .sum {
   display: table;
   border-collapse: collapse;
+  font-family: 'Nanum brush script', 'Chalkduster', 'Chalkboard';
 }
 
 .sum .operand {
